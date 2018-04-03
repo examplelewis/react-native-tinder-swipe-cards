@@ -6,6 +6,18 @@ A [package](https://www.npmjs.com/package/react-native-swipe-cards) based on [@b
 ![React Native Swipe Cards](https://github.com/meteor-factory/react-native-tinder-swipe-cards/raw/master/screenshots/swiper-cards.gif
 )
 
+# 重要更新 1
+这个库好久不更新了，用的时候有点问题。
+我 fork 了原来的代码，并修改了
+  _forceLeftSwipe()
+  _forceUpSwipe()
+  _forceRightSwipe()
+这三个方法
+  原来的逻辑是【开启动画的同时，调用 cardRemoved 回调】。
+  这个地方在数据源发生改变的时候会出现问题：
+    不知道何时动画结束，如果在 cardRemoved 修改数组，会导致可能会多删除一个 Card，也可能正常显示。
+  修改后的逻辑是【先开启动画，在动画结束后修改 state，当一切都结束的时候调用 cardRemoved 回调】。
+
 ## Quick Start
 1. `npm install --save react-native-swipe-cards`
 2. Create a module e.g. `SwipeCards.js`

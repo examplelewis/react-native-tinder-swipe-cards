@@ -252,9 +252,10 @@ export default class SwipeCards extends Component {
       else this._resetState();
 
       this.cardAnimation = null;
+      this.props.cardRemoved(currentIndex[this.guid]);
     }
       );
-    this.props.cardRemoved(currentIndex[this.guid]);
+//    this.props.cardRemoved(currentIndex[this.guid]); // 应当在动画完成，状态改变之后再通知
   }
 
   _forceUpSwipe() {
@@ -265,9 +266,10 @@ export default class SwipeCards extends Component {
       else this._resetState();
 
       this.cardAnimation = null;
+      this.props.cardRemoved(currentIndex[this.guid]);
     }
       );
-    this.props.cardRemoved(currentIndex[this.guid]);
+//    this.props.cardRemoved(currentIndex[this.guid]); // 应当在动画完成，状态改变之后再通知
   }
 
   _forceRightSwipe() {
@@ -278,9 +280,10 @@ export default class SwipeCards extends Component {
       else this._resetState();
 
       this.cardAnimation = null;
+      this.props.cardRemoved(currentIndex[this.guid]);
     }
       );
-    this.props.cardRemoved(currentIndex[this.guid]);
+//    this.props.cardRemoved(currentIndex[this.guid]); // 应当在动画完成，状态改变之后再通知
   }
 
   _goToNextCard() {
